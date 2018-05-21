@@ -29,12 +29,31 @@ function parseSearchParam() {
     searchParam = replaceSpaces(searchParam);
 }
 
+// API
+function runAPI() {
+    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam; // the URL for the API to use
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: "false",
+        url: apiURL,
+        success: function (json) { //TODO: build the success function
+            console.log(json.hits); //FIXME: json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
+
+        },
+        error: function () { //TODO: build meaningful error function
+            alert("API error!");
+        }
+    });
+}
+
 $(document).ready(function () {
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
+        runAPI();
 
     });
 
@@ -51,23 +70,10 @@ $(document).ready(function () {
             return false;
         }
     });
-    // API url
-    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam;
-    // API
-    // $.ajax({
-    //     type: "GET",
-    //     dataType: "json",
-    //     async: "false",
-    //     url: apiURL, //API url
-    //     success: function (json) { //TODO: build the success function
-    //         console.log(json.hits); //FIXME: TEST ONLY
 
-    //     },
-    //     error: function () { //TODO: build meaningful error function
-    //         alert("API error!");
-    //     }
-    // });
-    //  END OF api
+
+
+
 
 
 });
