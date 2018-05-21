@@ -3,6 +3,7 @@ HTML elements:
 ---------------
 + search button - #searchBtn
 + search input - #searchBox
++ api output (apiSuccess function) - #output
 ---------------
 */
 
@@ -29,6 +30,15 @@ function parseSearchParam() {
     searchParam = replaceSpaces(searchParam);
 }
 
+//TODO: extract the relevant information from the fetched json file
+//FIXME: json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
+function apiSuccess(json) {
+    for (var i = 0; i < json.hits.length; i++) {
+        var output = $('#output');
+        output.append('<p>' + json.hits[i].recipe.url + '</p>');
+    }
+}
+
 // API
 function runAPI() {
     var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam; // the URL for the API to use
@@ -37,8 +47,9 @@ function runAPI() {
         dataType: "json",
         async: "false",
         url: apiURL,
-        success: function (json) { //TODO: build the success function
-            console.log(json.hits); //FIXME: json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
+        success: function (json) { //TODO: finish building the success function
+            apiSuccess(json);
+
 
         },
         error: function () { //TODO: build meaningful error function
@@ -67,6 +78,7 @@ $(document).ready(function () {
         if (event.keyCode == 13) {
             searchParam = $('#searchBox').val();
             parseSearchParam();
+            runAPI();
             return false;
         }
     });
