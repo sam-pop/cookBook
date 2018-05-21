@@ -15,7 +15,7 @@ $(document).ready(function () {
         async: "false",
         url: apiURL, //API url
         success: function (json) { //TODO: build the success function
-            console.log(json.hits[1]); //FIXME: TEST ONLY
+            console.log(json.hits); //FIXME: TEST ONLY
 
         },
         error: function () { //TODO: build meaningful error function
