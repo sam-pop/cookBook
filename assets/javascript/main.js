@@ -13,14 +13,20 @@ var searchParam = ""; // the search param to use for the api query
 var space = "%20"; // use this instead of spaces between worsd
 var RegEx = /[^a-zA-Z\s]/gi; //only letters and spaces
 
-// replaces the spaces in the searchParam with "%20" 
-function replaceSpaces() {
-    searchParam = searchParam.split(' ').join('%20');
+// replaces the spaces in the string with "%20" 
+function replaceSpaces(str) {
+    return str.split(' ').join('%20');
 }
 
 // removes numbers and special characters
-function removeNonLettes() {
-    searchParam = searchParam.replace(RegEx, '');
+function removeNonLettes(str) {
+    return str.replace(RegEx, '');
+}
+
+// searchParam => contains lettes only and "%20" instead of spaces
+function parseSearchParam() {
+    searchParam = removeNonLettes(searchParam);
+    searchParam = replaceSpaces(searchParam);
 }
 
 $(document).ready(function () {
@@ -28,8 +34,8 @@ $(document).ready(function () {
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
-        removeNonLettes();
-        replaceSpaces();
+        parseSearchParam();
+
     });
 
     // clear out the search box on a mouse click
@@ -41,8 +47,7 @@ $(document).ready(function () {
     $('#searchBox').keydown(function (event) {
         if (event.keyCode == 13) {
             searchParam = $('#searchBox').val();
-            removeNonLettes();
-            replaceSpaces();
+            parseSearchParam();
             return false;
         }
     });
