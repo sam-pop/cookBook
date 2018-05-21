@@ -5,8 +5,6 @@ var searchParam = "chicken%20flour%20bread"; // the search param to use for the 
 var space = "%20"; // use this instead of spaces between worsd
 
 
-
-
 $(document).ready(function () {
 
     // API
