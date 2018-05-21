@@ -22,7 +22,6 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         removeNonLettes();
         replaceSpaces();
-        console.log('​searchParam', searchParam);
     });
 
     // clear out the search box on a mouse click
@@ -34,6 +33,7 @@ $(document).ready(function () {
     $('#searchBox').keydown(function (event) {
         if (event.keyCode == 13) {
             searchParam = $('#searchBox').val();
+            removeNonLettes();
             replaceSpaces();
             return false;
         }
