@@ -1,19 +1,28 @@
 // Gloval Variables
 var appID = "36b1ec01"; // edamam application ID
 var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamam application key
-var searchParam = "chicken%20flour%20bread"; // the search param to use for the api query //TODO: change this field
+var searchParam = ""; // the search param to use for the api query
 var space = "%20"; // use this instead of spaces between worsd
+var RegEx = /[^a-zA-Z\s]/gi; //only letters and spaces
 
-$(function () {
+// replaces the spaces in the searchParam with "%20" 
+function replaceSpaces() {
+    searchParam = searchParam.split(' ').join('%20');
+}
 
-});
+// removes numbers and special characters
+function removeNonLettes() {
+    searchParam = searchParam.replace(RegEx, '');
+}
 
 $(document).ready(function () {
 
     // update the search parameter on button click
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
-
+        removeNonLettes();
+        replaceSpaces();
+        console.log('​searchParam', searchParam);
     });
 
     // clear out the search box on a mouse click
@@ -25,6 +34,7 @@ $(document).ready(function () {
     $('#searchBox').keydown(function (event) {
         if (event.keyCode == 13) {
             searchParam = $('#searchBox').val();
+            replaceSpaces();
             return false;
         }
     });
@@ -45,4 +55,6 @@ $(document).ready(function () {
     //     }
     // });
     //  END OF api
+
+
 });
