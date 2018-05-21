@@ -1,3 +1,11 @@
+/*
+HTML elements:
+---------------
++ search button - #searchBtn
++ search input - #searchBox
+---------------
+*/
+
 // Gloval Variables
 var appID = "36b1ec01"; // edamam application ID
 var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamam application key
@@ -17,7 +25,7 @@ function removeNonLettes() {
 
 $(document).ready(function () {
 
-    // update the search parameter on button click
+    // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
         removeNonLettes();
