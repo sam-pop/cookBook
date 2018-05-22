@@ -100,19 +100,174 @@ $(document).ready(function () {
         $('#searchBox').val("");
     });
 
-    // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
-    $('#searchBox').keydown(function (event) {
-        if (event.keyCode == 13) {
-            searchParam = $('#searchBox').val();
-            parseSearchParam();
-            runAPI();
-            return false;
-        }
-    });
+    // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
+    // $('#searchBox').keydown(function (event) {
+    //     if (event.keyCode == 13) {
+    //         searchParam = $('#searchBox').val();
+    //         parseSearchParam();
+    //         runAPI();
+    //         return false;
+    //     }
+    // });
 
 
 
 
 
 
+});
+
+
+// jQueryUI autocomplete
+$(function () {
+    var availableTags = [
+        "American",
+        "Mexican",
+        "Swiss",
+        "Tex-Mex",
+        "balsamic",
+        'basil',
+        "beans",
+        'beef',
+        "bell",
+        'black',
+        'broccoli',
+        "broth",
+        "brown",
+        "burger",
+        "burrito",
+        "canned",
+        "canola",
+        "carrots",
+        "cheddar",
+        "cheese",
+        "chicken",
+        "chops",
+        "cocoa",
+        "cooked",
+        "corn",
+        "couscous",
+        "cucumber",
+        "dip",
+        "dressing",
+        "dried",
+        "eggs",
+        "feta",
+        "fish",
+        "flour",
+        "fresh",
+        "fresh",
+        "fried",
+        "fries",
+        "frozen",
+        "garlic",
+        "green",
+        "grilled",
+        "ham",
+        "hot",
+        "hummus",
+        "ketchup",
+        "lamb",
+        "legs",
+        "lemon",
+        "lentil",
+        "lettuce",
+        "mayo",
+        "mayonnaise",
+        "meatballs",
+        "mild",
+        "mushrooms",
+        "mustard",
+        "oil",
+        "olive",
+        "olives",
+        "omelet",
+        "onion",
+        "onions",
+        "orange",
+        "oregano",
+        "paprika",
+        "pasta",
+        "patties",
+        "peas",
+        "pepper",
+        "pig",
+        "pizza",
+        "pork",
+        "potato",
+        "potatoes",
+        "powder",
+        "quinoa",
+        "ravioli",
+        "red",
+        "relish",
+        "rice",
+        "roasted",
+        "rosemary",
+        "salsa",
+        "salt",
+        "sauce",
+        "sausage",
+        "sharp",
+        "soup",
+        "spice",
+        "spices",
+        "spicy",
+        "steak",
+        "taco",
+        "thighs",
+        "thyme",
+        "tomatoes",
+        "turkey",
+        "vegetable",
+        "veggies",
+        "water",
+        "white",
+        "wine",
+        "wings",
+        "yellow",
+        "yogurt",
+        "zest",
+        "zucchini"
+    ];
+
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $("#searchBox")
+        // don't navigate away from the field on tab when selecting an item
+        .on("keydown", function (event) {
+            if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                // delegate back to autocomplete, but extract the last term
+                response($.ui.autocomplete.filter(
+                    availableTags, extractLast(request.term)));
+            },
+            focus: function () {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function (event, ui) {
+                var terms = split(this.value);
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push(ui.item.value);
+                // add placeholder to get the comma-and-space at the end
+                terms.push("");
+                this.value = terms.join(", ");
+                return false;
+            }
+        });
 });
