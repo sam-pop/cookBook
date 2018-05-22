@@ -32,6 +32,10 @@ Recipe.prototype.listIngredients = function () {
     }
 };
 
+
+//TODO: Recipe.prototype functions to print to screen the rest of the Recipe properties
+
+
 // replaces the spaces in the string with "%20" 
 function replaceSpaces(str) {
     return str.split(' ').join('%20');
@@ -49,7 +53,7 @@ function parseSearchParam() {
 }
 
 //TODO: extract the relevant information from the fetched json file
-//FIXME: json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
+//TODO: DELETE THIS LINE - json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
 function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
