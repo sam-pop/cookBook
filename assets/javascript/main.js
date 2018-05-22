@@ -5,7 +5,7 @@ HTML elements:
 + search input - #searchBox (add title="..." for the tooltip content)
 + objects output - #output
 + loading screen -  .preload (& <img src="./assets/images/loading_spinner.gif" />)
-                    .content (for fadeIn effect)
+                    .mainContent (for fadeIn effect also holds all the page content)
 ---------------
 */
 
@@ -37,17 +37,55 @@ Recipe.prototype.listIngredients = function () {
     return ingList;
 };
 
-// builds the card items and appends them to the page
+/*
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. 
+
+    </div>
+  </div>
+</div>
+*/
+// builds the card items and appends them to the page (SKELETON)
 Recipe.prototype.showRecipe = function () {
-    var link = $('<a>').attr('href', this.url);
-    var card = $('<div>').addClass('card').append(link.append(
-        $('<img>').attr('src', this.image).addClass('card-img-top')));
-    $('<div>').addClass('card-body').appendTo(card).append([
-        link.append($('<h5>').addClass('card-title').text(this.label)),
-        $('<p>').addClass('card-text').append(this.listIngredients())
-    ]);
-    $('#output').append(card);
+    var link = $('<a>').attr('href', this.url).addClass('card');
+    var cardLabel = $('<h3>').text(this.label);
+    var cardText = $('<p>').append(this.listIngredients());
+
+    link.append(cardLabel);
+    link.append(cardText);
+    $('#output').append(link);
 };
+// // builds the card items and appends them to the page (BOOTSTRAP)
+// Recipe.prototype.showRecipe = function () {
+//     var link = $('<a>').attr('href', this.url);
+//     var card = $('<div>').addClass('card').append(link.append(
+//         $('<img>').attr('src', this.image).addClass('card-img-top')));
+//     $('<div>').addClass('card-body').appendTo(card).append([
+//         link.append($('<h5>').addClass('card-title').text(this.label)),
+//         $('<p>').addClass('card-text').append(this.listIngredients())
+//     ]);
+//     $('#output').append(card);
+// };
 
 // replaces the spaces in the string with "%20" 
 function replaceSpaces(str) {
