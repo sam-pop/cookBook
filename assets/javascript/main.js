@@ -23,10 +23,10 @@ function Recipe(label, ingredients, image, url) {
     this.url = url;
 }
 
-// iterate over the ingredients list and FIXME: ...and does what?
+// iterate over the ingredients list and print the ingredients
 Recipe.prototype.listIngredients = function () {
     for (var i = 0; i < this.ingredients.length; i++) {
-        console.log(this.ingredients[i]); //TODO: change
+        //TODO: print the ingredients to screen
     }
 };
 
@@ -52,11 +52,9 @@ function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
         recipes.push(recipe);
-        recipe.listIngredients();
+        // recipe.listIngredients(); //TODO: continue this logic
 
-        //TODO: check if needed / if not delete
-        // var output = $('#output');
-        // output.append('<p>' + json.hits[i].recipe.url + '</p>');
+
     }
 }
 
@@ -86,7 +84,6 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
-        console.log('​recipes', recipes); //TODO: delete
 
     });
 
