@@ -13,6 +13,22 @@ var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamam application key
 var searchParam = ""; // the search param to use for the api query
 var space = "%20"; // use this instead of spaces between worsd
 var RegEx = /[^a-zA-Z\s]/gi; //only letters and spaces
+var recipes = []; // holds an array of Recipe Objects that we fetched from the API
+
+// Constructor
+function Recipe(label, ingredients, image, url) {
+    this.label = label;
+    this.ingredients = ingredients;
+    this.image = image;
+    this.url = url;
+}
+
+// iterate over the ingredients list and FIXME: ...and does what?
+Recipe.prototype.listIngredients = function () {
+    for (var i = 0; i < this.ingredients.length; i++) {
+        console.log(this.ingredients[i]); //TODO: change
+    }
+};
 
 // replaces the spaces in the string with "%20" 
 function replaceSpaces(str) {
@@ -34,8 +50,12 @@ function parseSearchParam() {
 //FIXME: json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
 function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
-        var output = $('#output');
-        output.append('<p>' + json.hits[i].recipe.url + '</p>');
+        var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
+        recipes.push(recipe);
+
+        //TODO: check if needed / if not delete
+        // var output = $('#output');
+        // output.append('<p>' + json.hits[i].recipe.url + '</p>');
     }
 }
 
@@ -65,6 +85,7 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
+        console.log('​recipes', recipes);
 
     });
 
