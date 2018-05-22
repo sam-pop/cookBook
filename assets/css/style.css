@@ -1,10 +1,24 @@
 .ui-widget {
-    /* autocomplete font */
+    /* jQueryUI autocomplete */
     font-family: 'Raleway', sans-serif;
     font-size: 0.8em
 }
 
+.ui-tooltip {
+    /* jQueryUI tooltip */
+    color: red;
+}
+
+#searchBox {
+    border-radius: 50px;
+}
+
+#searchBtn {
+    border-radius: 50px;
+}
+
 .content {
+    /* for the loading screen */
     display: none;
 }
 

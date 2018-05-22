@@ -89,6 +89,19 @@ $(".preload").hide(); // hide prograss bar
 
 $(document).ready(function () {
 
+    //jQueryUI tooptip
+    $('#searchBox').tooltip({
+        show: {
+            effect: "slideDown",
+            delay: 250
+        },
+        hide: {
+            effect: "slideUp",
+            delay: 250
+        },
+        track: true
+    });
+
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
