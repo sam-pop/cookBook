@@ -136,6 +136,7 @@ $(function () {
         "brown",
         "burger",
         "burrito",
+        "butter",
         "canned",
         "canola",
         "carrots",
@@ -213,6 +214,7 @@ $(function () {
         "spice",
         "spices",
         "spicy",
+        "squash",
         "steak",
         "taco",
         "thighs",
@@ -232,7 +234,7 @@ $(function () {
     ];
 
     function split(val) {
-        return val.split(/,\s*/);
+        return val.split(" ");
     }
 
     function extractLast(term) {
@@ -248,7 +250,7 @@ $(function () {
             }
         })
         .autocomplete({
-            minLength: 0,
+            minLength: 2,
             source: function (request, response) {
                 // delegate back to autocomplete, but extract the last term
                 response($.ui.autocomplete.filter(
@@ -266,7 +268,7 @@ $(function () {
                 terms.push(ui.item.value);
                 // add placeholder to get the comma-and-space at the end
                 terms.push("");
-                this.value = terms.join(", ");
+                this.value = terms.join(" ");
                 return false;
             }
         });
