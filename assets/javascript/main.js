@@ -85,7 +85,7 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
-        console.log('​recipes', recipes);
+        console.log('​recipes', recipes); //TODO: delete
 
     });
 
