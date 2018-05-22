@@ -86,12 +86,17 @@ function runAPI() {
 }
 
 $(document).ready(function () {
+    $(".preload").hide();
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
+        // loading progress bar
+        $(".preload").show().fadeOut(2000, function () {
+            $(".content").fadeIn(1000);
+        });
 
     });
 
@@ -126,12 +131,13 @@ $(function () {
         "Swiss",
         "Tex-Mex",
         "balsamic",
-        'basil',
+        "basil",
         "beans",
-        'beef',
+        "beef",
         "bell",
-        'black',
-        'broccoli',
+        "black",
+        "breast",
+        "broccoli",
         "broth",
         "brown",
         "burger",
