@@ -27,16 +27,27 @@ function Recipe(label, ingredients, image, url) {
     this.url = url;
 }
 
-// iterate over the ingredients list and print the ingredients
+// iterate over the ingredients list and creates an unordered list of ingredients
 Recipe.prototype.listIngredients = function () {
+    var ingList = $('<ul>');
     for (var i = 0; i < this.ingredients.length; i++) {
-        //TODO: print the ingredients to screen
+        var ing = $('<li>').text(this.ingredients[i].text);
+        ingList.append(ing);
     }
+    return ingList;
 };
 
-
-//TODO: Recipe.prototype functions to print to screen the rest of the Recipe properties
-
+// builds the card items and appends them to the page
+Recipe.prototype.showRecipe = function () {
+    var card = $('<div>').addClass('card').append(
+        $('<img>').attr('src', this.image));
+    $('<div>').addClass('card-body').appendTo(card).append([
+        $('<h5>').addClass('card-title').text(this.label),
+        $('<p>').addClass('card-text').append(this.listIngredients())
+    ]);
+    var link = $('<a>').attr('href', this.url).append(card);
+    $('#output').append(link);
+};
 
 // replaces the spaces in the string with "%20" 
 function replaceSpaces(str) {
@@ -54,16 +65,14 @@ function parseSearchParam() {
     searchParam = replaceSpaces(searchParam);
 }
 
-//TODO: extract the relevant information from the fetched json file
+
 //TODO: DELETE THIS LINE - json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
 function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
         recipes.push(recipe);
         console.log('​recipe', recipe);
-        // recipe.listIngredients(); //TODO: continue this logic
-
-
+        recipe.showRecipe();
     }
 }
 
@@ -88,6 +97,7 @@ function runAPI() {
 }
 
 $(".preload").hide(); // hide prograss bar
+
 
 $(document).ready(function () {
 
