@@ -39,14 +39,14 @@ Recipe.prototype.listIngredients = function () {
 
 // builds the card items and appends them to the page
 Recipe.prototype.showRecipe = function () {
-    var card = $('<div>').addClass('card').append(
-        $('<img>').attr('src', this.image));
+    var link = $('<a>').attr('href', this.url);
+    var card = $('<div>').addClass('card').append(link.append(
+        $('<img>').attr('src', this.image).addClass('card-img-top')));
     $('<div>').addClass('card-body').appendTo(card).append([
-        $('<h5>').addClass('card-title').text(this.label),
+        link.append($('<h5>').addClass('card-title').text(this.label)),
         $('<p>').addClass('card-text').append(this.listIngredients())
     ]);
-    var link = $('<a>').attr('href', this.url).append(card);
-    $('#output').append(link);
+    $('#output').append(card);
 };
 
 // replaces the spaces in the string with "%20" 
