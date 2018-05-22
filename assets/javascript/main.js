@@ -131,6 +131,7 @@ $(document).ready(function () {
         $('#searchBox').val("");
     });
 
+
     // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
     // $('#searchBox').keydown(function (event) {
     //     if (event.keyCode == 13) {
@@ -141,13 +142,7 @@ $(document).ready(function () {
     //     }
     // });
 
-
-
-
-
-
 });
-
 
 
 // jQueryUI autocomplete
