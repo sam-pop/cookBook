@@ -67,14 +67,21 @@ Recipe.prototype.listIngredients = function () {
 */
 // builds the card items and appends them to the page (SKELETON)
 Recipe.prototype.showRecipe = function () {
-    var link = $('<a>').attr('href', this.url).addClass('card');
-    var cardLabel = $('<h3>').text(this.label);
-    var cardText = $('<p>').append(this.listIngredients());
-
-    link.append(cardLabel);
-    link.append(cardText);
-    $('#output').append(link);
+    var link = $('<a>').attr('href', this.url);
+    var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-4by3')
+        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content').append($('<p>').addClass('title is-6').text(this.label)), $('<div>').addClass('content').append(this.listIngredients())]));
+    $('#output').append(card);
 };
+// // builds the card items and appends them to the page (SKELETON)
+// Recipe.prototype.showRecipe = function () {
+//     var link = $('<a>').attr('href', this.url).addClass('card');
+//     var cardLabel = $('<h3>').text(this.label);
+//     var cardText = $('<p>').append(this.listIngredients());
+
+//     link.append(cardLabel);
+//     link.append(cardText);
+//     $('#output').append(link);
+// };
 // // builds the card items and appends them to the page (BOOTSTRAP)
 // Recipe.prototype.showRecipe = function () {
 //     var link = $('<a>').attr('href', this.url);
