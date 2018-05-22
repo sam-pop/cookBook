@@ -85,16 +85,17 @@ function runAPI() {
     });
 }
 
+$(".preload").hide(); // hide prograss bar
+
 $(document).ready(function () {
-    $(".preload").hide();
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
-        // loading progress bar
-        $(".preload").show().fadeOut(2000, function () {
+        // content loading progress bar
+        $(".preload").show().fadeOut(3000, function () {
             $(".content").fadeIn(1000);
         });
 
@@ -121,6 +122,7 @@ $(document).ready(function () {
 
 
 });
+
 
 
 // jQueryUI autocomplete
