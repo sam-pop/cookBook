@@ -2,8 +2,10 @@
 HTML elements:
 ---------------
 + search button - #searchBtn
-+ search input - #searchBox
++ search input - #searchBox (add title="..." for the tooltip content)
 + objects output - #output
++ loading screen -  .preload (& <img src="./assets/images/loading_spinner.gif" />)
+                    .content (for fadeIn effect)
 ---------------
 */
 
