@@ -3,17 +3,17 @@ HTML elements:
 ---------------
 + search button - #searchBtn
 + search input - #searchBox
-+ api output (apiSuccess function) - #output
++ objects output - #output
 ---------------
 */
 
 // Gloval Variables
-var appID = "36b1ec01"; // edamam application ID
-var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamam application key
+var appID = "36b1ec01"; // edamamAPI application ID
+var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
-var space = "%20"; // use this instead of spaces between worsd
+var space = "%20"; // use this instead of spaces between words
 var RegEx = /[^a-zA-Z\s]/gi; //only letters and spaces
-var recipes = []; // holds an array of Recipe Objects that we fetched from the API
+var recipes = []; // holds an array of 'Recipe' objects that we fetched from the API
 
 // Constructor
 function Recipe(label, ingredients, image, url) {
@@ -52,6 +52,7 @@ function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
         recipes.push(recipe);
+        recipe.listIngredients();
 
         //TODO: check if needed / if not delete
         // var output = $('#output');
