@@ -131,9 +131,10 @@ function runAPI() {
 
 
 $(".preload").hide(); // hide prograss bar
-$('#notification').hide();
+$('#notification').hide(); // hide the notification
 
 $(document).ready(function () {
+
     $('#aboutLink').click(function () {
         $('#notification').toggle();
     });
