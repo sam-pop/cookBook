@@ -117,8 +117,11 @@ function runAPI() {
             // opens ingredients dropdown on mouse click
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
-            });
+                $(this).mouseout(function () {
+                    this.classList.remove('is-active');
+                });
 
+            });
         },
         error: function () { //TODO: build meaningful error function
             alert("API error!");
