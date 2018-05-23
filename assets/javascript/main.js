@@ -68,9 +68,10 @@ Recipe.prototype.listIngredients = function () {
 // builds the card items and appends them to the page (SKELETON)
 Recipe.prototype.showRecipe = function () {
     var link = $('<a>').attr('href', this.url);
-    var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-4by3')
-        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content').append($('<p>').addClass('title is-6').text(this.label)), $('<div>').addClass('content').append(this.listIngredients())]));
+    var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
+        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label)), $('<p>').addClass('content card-li').append(this.listIngredients())]));
     $('#output').append(card);
+    $('#output').append('<br>');
 };
 // // builds the card items and appends them to the page (SKELETON)
 // Recipe.prototype.showRecipe = function () {

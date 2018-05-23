@@ -1,3 +1,7 @@
+body {
+    font-size: 14px;
+}
+
 .ui-widget {
     /* jQueryUI autocomplete */
     font-family: 'Raleway', sans-serif;
@@ -10,7 +14,9 @@
 }
 
 #searchBox {
-    border-radius: 50px;
+    width: 500px;
+    border-color: darkred;
+    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
 }
 
 #searchBtn {
@@ -32,9 +38,9 @@
 }
 
 .card {
-    width: 200px;
+    width: 250px;
 }
 
-.card-img-top {
-    width: 200px;
+.card-li {
+    padding: 5px;
 }
