@@ -45,7 +45,7 @@ Recipe.prototype.showRecipe = function () {
         'target': '_blank'
     });
 
-    var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').attr('title', "Click me!").append($('<button>').attr({
+    var ingredientDropdown = $('<div>').addClass('dropdown is-up').append([$('<div>').addClass('dropdown-trigger').attr('title', "Click me!").append($('<button>').attr({
         'aria-haspopup': 'true',
         'aria-controls': 'dropdown-menu2',
         'class': 'button is-inverted',

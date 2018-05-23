@@ -29,7 +29,7 @@ button :focus :active {
 
 .ui-tooltip {
     /* jQueryUI tooltip */
-    color: red;
+    color: #1495EC;
     font-size: 14px;
     font-weight: bold;
 }
