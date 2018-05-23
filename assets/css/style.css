@@ -17,7 +17,7 @@
     border-radius: 50px;
 }
 
-.mainContent {
+#output {
     /* for the loading screen */
     display: none;
 }

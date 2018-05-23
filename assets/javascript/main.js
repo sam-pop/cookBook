@@ -161,14 +161,14 @@ $(document).ready(function () {
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
+        $('#output').empty();
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
         // content loading progress bar
         $(".preload").show().fadeOut(3000, function () {
-            $(".content").fadeIn(1000);
+            $("#output").fadeIn(1000);
         });
-
     });
 
     // clear out the search box on a mouse click
@@ -278,6 +278,7 @@ $(function () {
         "rice",
         "roasted",
         "rosemary",
+        "salad",
         "salsa",
         "salt",
         "sauce",
