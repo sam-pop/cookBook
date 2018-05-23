@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
     <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/bulma.css" />
     <link rel="stylesheet" href="./assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
@@ -22,11 +24,17 @@
 
     <!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container">
-        <input id="searchBox" type="text" placeholder="What are we making today?" size="50">
+        <br>
+        <br>
+        <input id="searchBox" class="input is-rounded is-focused clearable" type="text" placeholder="What are we making today?" size="50"
+            title="Go wild!">
         <button id="searchBtn" type="submit">Search!</button>
     </div>
-
+    <div class="preload">
+        <img src="./assets/images/loading_spinner.gif" />
+    </div>
     <div class="container">
+        <br>
         <div id="output"></div>
     </div>
 

@@ -1,0 +1,70 @@
+body {
+    font-size: 14px;
+}
+
+.ui-widget {
+    /* jQueryUI autocomplete */
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8em
+}
+
+.ui-tooltip {
+    /* jQueryUI tooltip */
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#searchBox {
+    width: 500px;
+    border-color: rgb(163, 45, 45);
+    box-shadow: 0 0 0 0.125em rgba(220, 50, 50, 0.568);
+}
+
+#searchBtn {
+    border-radius: 50px;
+}
+
+#output {
+    /* for the loading screen */
+    display: none;
+}
+
+.preload {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    width: 20%;
+}
+
+.card-li {
+    padding: 5px;
+}
+
+.clearable {
+    background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px;
+    border-radius: 3px;
+    transition: background 0.4s;
+}
+
+.clearable.x {
+    background-position: right 10px center;
+}
+
+.clearable.onX {
+    cursor: pointer;
+}
+
+.clearable::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
