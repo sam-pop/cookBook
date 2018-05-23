@@ -2,38 +2,36 @@
 <html lang="en">
 
 <head>
-    <title>FOODIElicious</title>
+    <title>FOODi.licious</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
     <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/bulma.css" />
+    <link rel="stylesheet" href="./assets/css/animate.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 
 <body>
 
-    <!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
     <div class="container is-fullhd">
-        <div class="block">
+        <!-- NAVBAR -->
+        <div class="block animated fadeInDown">
             <nav class="navbar has-navbar-fixed-top is-dark">
                 <div class="navbar-brand">
                     <a href="" class="navbar-item">
-                        <h1 class="title is-4">Foodie-licious</h1>
+                        <h1 class="title is-4">FOODi.licious</h1>
                     </a>
                 </div>
                 <div class="navbar-end navbar-menu">
                     <a href="#" id="aboutLink" class="navbar-item">About</a>
+                    <a href="./team.html" class="navbar-item">Our Team</a>
                     <a href="#" class="navbar-item">
                         <span class="icon">
                             <i class="fab fa-github"></i>
@@ -41,16 +39,39 @@
                     </a>
                 </div>
             </nav>
+            <!-- NOTIFICATION -> ABOUT -->
             <div class="block">
                 <div id="notification" class="notification is-dark">
                     <button id="deleteBtn" class="delete"></button>
-                    About page
+                    About page will come here
                 </div>
             </div>
         </div>
     </div>
+    <!-- NEED TO EDIT from here on -->
+    <div class="block">
+        <div class="columns">
+            <div class="column is-center has-text-centered search animated zoomIn">
+                <br>
+                <br>
+                <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
+                    size="50" title="Go wild!">
+                <button id="searchBtn" class="button is-info" type="submit">Search!</button>
+                <div class="preload">
+                    <img src="./assets/images/loading_spinner.gif" />
+                </div>
+            </div>
+        </div>
+        <div class="columns output is-center">
+            <div class="column preload">
+                <img src="./assets/images/loading_spinner.gif" />
+            </div>
+        </div>
+    </div>
+    </div>
 
-    <!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- End OF container-->
+
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
