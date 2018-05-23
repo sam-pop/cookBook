@@ -59,7 +59,7 @@ Recipe.prototype.showRecipe = function () {
         .addClass('content card-li').append(ingredientDropdown));
 
     $('#output').append(card);
-    $('#output').append('<br>');
+    $('#output').append('<br>'); //FIXME: check if needed
 
 
 
@@ -93,20 +93,18 @@ function parseSearchParam() {
     searchParam = replaceSpaces(searchParam);
 }
 
-
-//TODO: DELETE THIS LINE - json.hits[i].recipe.* -> image(url), ingredients[], label, url(recipe external url) 
+// create Recipe objects from the API's json file and display them
 function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
         recipes.push(recipe);
-        console.log('​recipe', recipe);
+        console.log('​recipe', recipe); //TODO: delete when no longer needed
         recipe.showRecipe();
     }
 }
 
 // API
 function runAPI() {
-    // var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam; // the URL for the API to use
     var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=0&to=" + maxResults; // the URL for the API to use
     $.ajax({
         type: "GET",
@@ -119,8 +117,11 @@ function runAPI() {
             // opens ingredients dropdown on mouse click
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
-            });
+                $(this).mouseout(function () {
+                    this.classList.remove('is-active');
+                });
 
+            });
         },
         error: function () { //TODO: build meaningful error function
             alert("API error!");
@@ -132,7 +133,6 @@ function runAPI() {
 $(".preload").hide(); // hide prograss bar
 
 $(document).ready(function () {
-
 
     //jQueryUI tooptip
     $('#searchBox').tooltip({
@@ -153,6 +153,7 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
+
         // content loading progress bar
         $(".preload").show().fadeOut(3000, function () {
             $("#output").fadeIn(1000);
