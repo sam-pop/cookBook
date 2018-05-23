@@ -54,12 +54,12 @@ Recipe.prototype.showRecipe = function () {
         role: 'menu'
     }).append($('<div>').addClass('dropdown-content').append($('<div>').addClass('dropdown-item').append(this.listIngredients())))]);
 
-    var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
+    var card = $('<div>').addClass('column').append($('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
         .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label))])).append($('<p>')
-        .addClass('content card-li').append(ingredientDropdown));
+        .addClass('content card-li').append(ingredientDropdown)));
 
-    $('#output').append(card);
-    $('#output').append('<br>'); //FIXME: check if needed
+    $('.output').append(card);
+    $('.output').append('<br>'); //FIXME: check if needed
 
 
 
@@ -158,14 +158,14 @@ $(document).ready(function () {
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
-        $('#output').empty();
+        $('.output').empty();
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
 
         // content loading progress bar
         $(".preload").show().fadeOut(3000, function () {
-            $("#output").fadeIn(1000);
+            $(".output").fadeIn(1000);
         });
 
     });

@@ -48,21 +48,26 @@
     </div>
     <!-- NEED TO EDIT from here on -->
     <div class="block">
-        <div class="container">
-            <br>
-            <br>
-            <input id="searchBox" class="input is-rounded is-focused clearable" type="text" placeholder="What are we making today?" size="50"
-                title="Go wild!">
-            <button id="searchBtn" type="submit">Search!</button>
+        <div class="columns">
+            <div class="column">
+                <br>
+                <br>
+                <input id="searchBox" class="input is-rounded is-focused clearable" type="text" placeholder="What are we making today?" size="50"
+                    title="Go wild!">
+                <button id="searchBtn" type="submit">Search!</button>
+                <div class="preload">
+                    <img src="./assets/images/loading_spinner.gif" />
+                </div>
+            </div>
         </div>
-        <div class="preload">
-            <img src="./assets/images/loading_spinner.gif" />
-        </div>
-        <div class="container">
-            <br>
-            <div id="output"></div>
+        <div class="columns output is-center">
+            <div class="column preload is-center">
+                <img src="./assets/images/loading_spinner.gif" />
+            </div>
         </div>
     </div>
+    </div>
+
     <!-- End OF container-->
 
 
