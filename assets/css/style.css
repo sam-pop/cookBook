@@ -4,8 +4,8 @@ body {
     background-size: cover;
     background-position: center;
     font-size: 14px;
-    min-height: 100vh;
     color: #F5F5F5;
+    min-height: 100vh;
 }
 
 h1 {
@@ -63,7 +63,7 @@ button :focus :active {
 }
 
 .preload {
-    padding-top: 40%;
+    padding-top: 30%;
     margin: 0 auto;
     position: absolute;
     top: 50%;
