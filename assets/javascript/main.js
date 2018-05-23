@@ -50,13 +50,13 @@ Recipe.prototype.showRecipe = function () {
         'aria-controls': 'dropdown-menu2',
         'class': 'button is-inverted',
         'style': 'border-width:0;'
-    }).append([$('<span>').text('Ingredient List'), $('<span>').addClass('icon is-small').append(
-        $('<i>').addClass('fas fa-angle-down').attr('aria-hidden', true))])), $('<div>').addClass('dropdown-menu').attr({
+    }).append([$('<span>').addClass('icon is-small').append(
+        $('<i>').addClass('fas fa-utensils').attr('aria-hidden', true)), $('<span>').text('Ingredient List')])), $('<div>').addClass('dropdown-menu').attr({
         id: 'dropdown-menu2',
         role: 'menu'
     }).append($('<div>').addClass('dropdown-content').append($('<div>').addClass('dropdown-item has-text-left').append(this.listIngredients())))]);
 
-    var card = $('<div>').addClass('column').append($('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
+    var card = $('<div>').addClass('column').append($('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-square')
         .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-6 has-text-centered').text(this.label))])).append($('<p>')
         .addClass('content card-li has-text-centered').append(ingredientDropdown)));
 
