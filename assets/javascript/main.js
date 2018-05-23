@@ -134,10 +134,10 @@ $(document).ready(function () {
         });
     });
 
-    // clear out the search box on a mouse click
-    $('#searchBox').click(function () {
-        $('#searchBox').val("");
-    });
+    // // clear out the search box on a mouse click
+    // $('#searchBox').click(function () {
+    //     $('#searchBox').val("");
+    // });
 
     // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
     // $('#searchBox').keydown(function (event) {
