@@ -40,7 +40,10 @@ Recipe.prototype.listIngredients = function () {
 
 // builds the card items and appends them to the page (BULMA)
 Recipe.prototype.showRecipe = function () {
-    var link = $('<a>').attr('href', this.url);
+    var link = $('<a>').attr({
+        'href': this.url,
+        'target': '_blank'
+    });
 
     var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').append($('<button>').attr({
         'aria-haspopup': 'true',
@@ -278,6 +281,8 @@ $(function () {
         "taco",
         "thighs",
         "thyme",
+        "toast",
+        "toasted",
         "tomatoes",
         "turkey",
         "vegetable",
