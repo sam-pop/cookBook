@@ -134,6 +134,10 @@ $(".preload").hide(); // hide prograss bar
 
 $(document).ready(function () {
 
+    $('#deleteBtn').click(function () {
+        $('#notification').hide();
+    });
+
     //jQueryUI tooptip
     $('#searchBox').tooltip({
         show: {
@@ -241,6 +245,7 @@ $(function () {
         "mild",
         "mushrooms",
         "mustard",
+        "noodle",
         "oil",
         "olive",
         "olives",
