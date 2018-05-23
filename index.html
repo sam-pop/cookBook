@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>FOODIElicious</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/bulma.css" />
     <link rel="stylesheet" href="./assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/bulma.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
@@ -23,37 +23,31 @@
 <body>
 
     <!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="container">
+    <!-- <div class="block">
+        <div id="notification" class="notification is-danger">
+            <button id="deleteBtn" class="delete"></button>
+            Check out our new design!
+        </div>
+    </div> -->
+    <div class="container is-fullhd">
         <div class="block">
-            <div id="notification" class="notification is-danger">
-                <button id="deleteBtn" class="delete"></button>
-                Check out our new design!
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column has-text-centered">
-                <div class="title is-1">
-                    title
+            <nav class="navbar has-navbar-fixed-top is-dark">
+                <div class="navbar-brand">
+                    <a href="" class="navbar-item">
+                        <h1 class="title is-4">Foodie-licious</h1>
+                    </a>
                 </div>
-            </div>
+                <div class="navbar-end navbar-menu">
+                    <a href="#" class="navbar-item">About</a>
+                    <a href="#" class="navbar-item">Contact</a>
+                    <a href="#" class="navbar-item">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                    </a>
+                </div>
+            </nav>
         </div>
-        <div class="columns">
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="coulmn">3</div>
-        </div>
-        <br>
-        <br>
-        <input id="searchBox" class="input is-rounded is-focused clearable" type="text" placeholder="What are we making today?" size="50"
-            title="Go wild!">
-        <button id="searchBtn" class="button is-danger" type="submit">Search!</button>
-    </div>
-    <div class="preload">
-        <img src="./assets/images/loading_spinner.gif" />
-    </div>
-    <div class="container">
-        <br>
-        <div id="output"></div>
     </div>
 
     <!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––– -->
