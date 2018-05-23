@@ -114,7 +114,7 @@ function runAPI() {
         success: function (json) { //TODO: finish building the success function
             apiSuccess(json);
 
-            // opens ingredients dropdown on mouse click
+            // opens ingredients dropdown on mouse click and closes on mouseout
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
                 $(this).mouseout(function () {
