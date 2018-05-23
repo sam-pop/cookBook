@@ -105,6 +105,12 @@ function runAPI() {
     });
 }
 
+var dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('click', function (event) {
+    event.stopPropagation();
+    dropdown.classList.toggle('is-active');
+});
+
 $(".preload").hide(); // hide prograss bar
 
 $(document).ready(function () {
@@ -148,6 +154,7 @@ $(document).ready(function () {
     //         return false;
     //     }
     // });
+
 
 });
 
