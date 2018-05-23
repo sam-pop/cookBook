@@ -50,12 +50,44 @@
         <!-- NEED TO EDIT from here on -->
         <div class="block">
             <div class="columns">
+                
                 <div class="column is-center has-text-centered search animated zoomIn">
                     <br>
                     <br>
                     <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
                         size="50" title="Yum Yum!">
                     <button id="searchBtn" class="button is-info" type="submit">Search!</button>
+                    <div class="has-text-centered">
+                        <span class="subtitle is-6">Special Diet?</span>
+                        <div class="select is-dark is-small">
+                            <select id="diet">
+                                <option></option>
+                                <option>Balanced</option>
+                                <option>High-Protein</option>
+                                <option>Low-Carb</option>
+                                <option>Low-Fat</option>
+                                <option>Low-Sodium</option>
+                            </select>
+                        </div>
+                        <span class="subtitle is-6">Health Conscious?</span>
+                        <div class="select is-light is-small">
+                            <select id="health">
+                                <option></option>
+                                <option>Vegan</option>
+                                <option>Vegetarian</option>
+                                <option>Dairy-Free</option>
+                                <option>Gluten-Free</option>
+                                <option>Low-Sugar</option>
+                                <option>Kosher</option>
+                                <option>Egg-Free</option>
+                                <option>Fish-Free</option>
+                                <option>Peanut-Free</option>
+                                <option>Red-Meat-Free</option>
+                                <option>Shellfish-Free</option>
+                                <option>Soy-Free</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="preload">
                         <img src="./assets/images/loading_spinner.gif" />
                     </div>

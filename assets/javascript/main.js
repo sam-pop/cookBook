@@ -14,6 +14,8 @@ var appID = "36b1ec01"; // edamamAPI application ID
 var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results //TODO: fix to include multiple ingredients ('&excluded='+ array[i])
+var diet = ""; // diet selector
+var health = ""; // health selector
 var maxResults = 5; // the maxium number of results to return from the API
 var space = "%20"; // use this instead of spaces between words
 var regEx = /[^a-zA-Z\s]/gi; //only letters and spaces
@@ -107,7 +109,7 @@ function apiSuccess(json) {
 
 // API
 function runAPI() {
-    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=0&to=" + maxResults; // the URL for the API to use
+    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=0&to=" + maxResults + diet + health; // the URL for the API to use
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -137,10 +139,36 @@ $('#notification').hide(); // hide the notification
 
 $(document).ready(function () {
 
+    // assign the diet variable the selected option from the select form
+    $("#diet")
+        .change(function () {
+            $("#diet option:selected").each(function () {
+                var str = $(this).text().toLowerCase();
+                if (str !== "")
+                    diet = '&diet=' + str;
+                else diet = "";
+            });
+        })
+        .trigger("change");
+
+    // assign the health variable the selected option from the select form
+    $("#health")
+        .change(function () {
+            $("#health option:selected").each(function () {
+                var str = $(this).text().toLowerCase();
+                if (str !== "")
+                    health = '&health=' + str;
+                else health = "";
+            });
+        })
+        .trigger("change");
+
+    // toggle the about notification area
     $('#aboutLink').click(function () {
         $('#notification').toggle();
     });
 
+    // closes the about notification area
     $('#deleteBtn').click(function () {
         $('#notification').hide();
     });
@@ -167,7 +195,6 @@ $(document).ready(function () {
         $(".search").animate({
             "padding-top": "-=100px",
         }, 1500);
-        // $('.search').fadeOut(100).fadeIn(100).css('padding-top', 0);
 
         // content loading progress bar
         $(".preload").show().fadeOut(3000, function () {

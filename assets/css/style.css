@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
 }
 
+select {
+    width: 100px;
+}
+
 h1 {
     color: #F5F5F5 !important;
 }
@@ -110,4 +114,5 @@ footer {
     left: 0;
     text-align: center;
     margin: 0 auto;
+    font-size: 0.9em;
 }
