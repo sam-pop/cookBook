@@ -45,7 +45,7 @@ Recipe.prototype.showRecipe = function () {
         'target': '_blank'
     });
 
-    var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').append($('<button>').attr({
+    var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').attr('title', "Click me!").append($('<button>').attr({
         'aria-haspopup': 'true',
         'aria-controls': 'dropdown-menu2'
     }).append([$('<span>').text('Ingredient List'), $('<span>').addClass('icon is-small').append(
@@ -114,7 +114,7 @@ function runAPI() {
         success: function (json) { //TODO: finish building the success function
             apiSuccess(json);
 
-            // opens ingredients dropdown on mouse click
+            // opens ingredients dropdown on mouse click and closes on mouseout
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
                 $(this).mouseout(function () {
@@ -138,11 +138,11 @@ $(document).ready(function () {
     $('#searchBox').tooltip({
         show: {
             effect: "slideDown",
-            delay: 250
+            delay: 1000
         },
         hide: {
             effect: "slideUp",
-            delay: 250
+            delay: 100
         },
         track: true
     });
