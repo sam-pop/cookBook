@@ -13,7 +13,7 @@ h1 {
 }
 
 p {
-    color: red;
+    color: rgb(230, 230, 230);
 }
 
 button :focus :active {
@@ -101,4 +101,13 @@ button :focus :active {
     display: none;
     width: 0;
     height: 0;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.308);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
 }
