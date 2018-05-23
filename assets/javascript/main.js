@@ -37,52 +37,14 @@ Recipe.prototype.listIngredients = function () {
     return ingList;
 };
 
-/*
-<div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
-      </div>
-    </div>
-
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. 
-
-    </div>
-  </div>
-</div>
-*/
-// builds the card items and appends them to the page (SKELETON)
+// builds the card items and appends them to the page (BULMA)
 Recipe.prototype.showRecipe = function () {
     var link = $('<a>').attr('href', this.url);
     var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
-        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label)), $('<p>').addClass('content card-li').append(this.listIngredients())]));
+        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label))])).append($('<p>').addClass('content card-li').append(this.listIngredients()));
     $('#output').append(card);
     $('#output').append('<br>');
 };
-// // builds the card items and appends them to the page (SKELETON)
-// Recipe.prototype.showRecipe = function () {
-//     var link = $('<a>').attr('href', this.url).addClass('card');
-//     var cardLabel = $('<h3>').text(this.label);
-//     var cardText = $('<p>').append(this.listIngredients());
-
-//     link.append(cardLabel);
-//     link.append(cardText);
-//     $('#output').append(link);
-// };
 // // builds the card items and appends them to the page (BOOTSTRAP)
 // Recipe.prototype.showRecipe = function () {
 //     var link = $('<a>').attr('href', this.url);
@@ -94,6 +56,7 @@ Recipe.prototype.showRecipe = function () {
 //     ]);
 //     $('#output').append(card);
 // };
+
 
 // replaces the spaces in the string with "%20" 
 function replaceSpaces(str) {
@@ -144,7 +107,6 @@ function runAPI() {
 
 $(".preload").hide(); // hide prograss bar
 
-
 $(document).ready(function () {
 
     //jQueryUI tooptip
@@ -177,7 +139,6 @@ $(document).ready(function () {
         $('#searchBox').val("");
     });
 
-
     // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
     // $('#searchBox').keydown(function (event) {
     //     if (event.keyCode == 13) {
@@ -189,7 +150,6 @@ $(document).ready(function () {
     // });
 
 });
-
 
 // jQueryUI autocomplete
 $(function () {
@@ -347,4 +307,18 @@ $(function () {
                 return false;
             }
         });
+});
+
+
+// clearable text input
+function tog(v) {
+    return v ? 'addClass' : 'removeClass';
+}
+$(document).on('input', '.clearable', function () {
+    $(this)[tog(this.value)]('x');
+}).on('mousemove', '.x', function (e) {
+    $(this)[tog(this.offsetWidth - 18 < e.clientX - this.getBoundingClientRect().left)]('onX');
+}).on('touchstart click', '.onX', function (ev) {
+    ev.preventDefault();
+    $(this).removeClass('x onX').val('').change();
 });
