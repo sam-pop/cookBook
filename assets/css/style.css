@@ -16,6 +16,11 @@ p {
     color: red;
 }
 
+button :focus :active {
+    outline: 0;
+    border-width: 0;
+}
+
 .ui-widget {
     /* jQueryUI autocomplete */
     font-family: 'Raleway', sans-serif;
@@ -39,7 +44,7 @@ p {
     border-radius: 50px;
 }
 
-#output {
+.output {
     /* for the loading screen */
     display: none;
 }
@@ -55,6 +60,7 @@ p {
 
 .card {
     width: 90%;
+    border-radius: 50px;
 }
 
 .card-li {

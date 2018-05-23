@@ -47,16 +47,18 @@ Recipe.prototype.showRecipe = function () {
 
     var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').attr('title', "Click me!").append($('<button>').attr({
         'aria-haspopup': 'true',
-        'aria-controls': 'dropdown-menu2'
+        'aria-controls': 'dropdown-menu2',
+        'class': 'button is-inverted',
+        'style': 'border-width:0;'
     }).append([$('<span>').text('Ingredient List'), $('<span>').addClass('icon is-small').append(
         $('<i>').addClass('fas fa-angle-down').attr('aria-hidden', true))])), $('<div>').addClass('dropdown-menu').attr({
         id: 'dropdown-menu2',
         role: 'menu'
-    }).append($('<div>').addClass('dropdown-content').append($('<div>').addClass('dropdown-item').append(this.listIngredients())))]);
+    }).append($('<div>').addClass('dropdown-content').append($('<div>').addClass('dropdown-item has-text-left').append(this.listIngredients())))]);
 
     var card = $('<div>').addClass('column').append($('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
-        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label))])).append($('<p>')
-        .addClass('content card-li').append(ingredientDropdown)));
+        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-6 has-text-centered').text(this.label))])).append($('<p>')
+        .addClass('content card-li has-text-centered').append(ingredientDropdown)));
 
     $('.output').append(card);
     $('.output').append('<br>'); //FIXME: check if needed
