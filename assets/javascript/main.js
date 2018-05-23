@@ -27,6 +27,7 @@ function Recipe(label, ingredients, image, url) {
     this.url = url;
 }
 
+
 // iterate over the ingredients list and creates an unordered list of ingredients
 Recipe.prototype.listIngredients = function () {
     var ingList = $('<ul>');
@@ -40,10 +41,25 @@ Recipe.prototype.listIngredients = function () {
 // builds the card items and appends them to the page (BULMA)
 Recipe.prototype.showRecipe = function () {
     var link = $('<a>').attr('href', this.url);
+
+    var ingredientDropdown = $('<div>').addClass('dropdown').append([$('<div>').addClass('dropdown-trigger').append($('<button>').attr({
+        'aria-haspopup': 'true',
+        'aria-controls': 'dropdown-menu2'
+    }).append([$('<span>').text('Ingredient List'), $('<span>').addClass('icon is-small').append(
+        $('<i>').addClass('fas fa-angle-down').attr('aria-hidden', true))])), $('<div>').addClass('dropdown-menu').attr({
+        id: 'dropdown-menu2',
+        role: 'menu'
+    }).append($('<div>').addClass('dropdown-content').append($('<div>').addClass('dropdown-item').append(this.listIngredients())))]);
+
     var card = $('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-6by6')
-        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label))])).append($('<p>').addClass('content card-li').append(this.listIngredients()));
+        .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-5').text(this.label))])).append($('<p>')
+        .addClass('content card-li').append(ingredientDropdown));
+
     $('#output').append(card);
     $('#output').append('<br>');
+
+
+
 };
 // // builds the card items and appends them to the page (BOOTSTRAP)
 // Recipe.prototype.showRecipe = function () {
@@ -97,6 +113,10 @@ function runAPI() {
         success: function (json) { //TODO: finish building the success function
             apiSuccess(json);
 
+            // opens ingredients dropdown on mouse click
+            $(document).on("click", ".dropdown", function () {
+                this.classList.toggle('is-active');
+            });
 
         },
         error: function () { //TODO: build meaningful error function
@@ -105,15 +125,11 @@ function runAPI() {
     });
 }
 
-var dropdown = document.querySelector('.dropdown');
-dropdown.addEventListener('click', function (event) {
-    event.stopPropagation();
-    dropdown.classList.toggle('is-active');
-});
 
 $(".preload").hide(); // hide prograss bar
 
 $(document).ready(function () {
+
 
     //jQueryUI tooptip
     $('#searchBox').tooltip({
@@ -138,6 +154,7 @@ $(document).ready(function () {
         $(".preload").show().fadeOut(3000, function () {
             $("#output").fadeIn(1000);
         });
+
     });
 
     // // clear out the search box on a mouse click
