@@ -34,23 +34,37 @@ button :focus :active {
     font-weight: bold;
 }
 
+.search {
+    padding-top: 100px;
+}
+
 #searchBox {
-    width: 500px;
-    border-color: rgb(163, 45, 45);
-    box-shadow: 0 0 0 0.125em rgba(220, 50, 50, 0.568);
+    width: 50%;
+    height: 40px;
 }
 
 #searchBtn {
     border-radius: 50px;
+    height: 40px;
+    width: 100px;
 }
 
 .output {
     /* for the loading screen */
     display: none;
+    padding-top: 50px;
+}
+
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 .preload {
-    margin: 0;
+    padding-top: 40%;
+    margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;

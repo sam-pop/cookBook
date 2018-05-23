@@ -164,6 +164,10 @@ $(document).ready(function () {
         searchParam = $('#searchBox').val();
         parseSearchParam();
         runAPI();
+        $(".search").animate({
+            "padding-top": "-=100px",
+        }, 1500);
+        // $('.search').fadeOut(100).fadeIn(100).css('padding-top', 0);
 
         // content loading progress bar
         $(".preload").show().fadeOut(3000, function () {
