@@ -125,14 +125,12 @@ function runAPI() {
         success: function (json) { // on API success
             apiSuccess(json);
             $('#searchBox').attr('placeholder', 'What are we making today?');
-
             // opens ingredients dropdown on mouse click and closes on mouseout
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
                 $(this).mouseout(function () {
                     this.classList.remove('is-active');
                 });
-
             });
         },
         error: function () { // on API error
@@ -149,9 +147,6 @@ function runAPI() {
             $('.output').append(msg);
             initFields();
             $('#searchBox').attr('placeholder', 'Please try different search parameters');
-
-
-
         }
     });
 }
