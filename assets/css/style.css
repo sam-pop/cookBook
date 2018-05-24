@@ -16,6 +16,12 @@ a:hover {
     background-color: rgba(41, 40, 40, 0.8) !important;
 }
 
+.navbar-brand {
+    font-family: 'Playfair Display SC', serif;
+    /* font-family: 'Amatic SC', cursive; */
+    /* font-family: 'Abel', sans-serif; */
+}
+
 .is-1 {
     color: white;
     text-align: center;
