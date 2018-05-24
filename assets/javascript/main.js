@@ -195,9 +195,12 @@ $(document).ready(function () {
     $('#searchBtn').click(function () {
         if ($('#searchBox').val() !== "") {
             // init search range
+            $('#moreResults').hide();
             from = 0;
             to = 5;
-            $('#moreResults').show();
+            setTimeout(function () {
+                $('#moreResults').show();
+            }, 3000);
 
             $(this).addClass('is-loading');
             setTimeout(function () {

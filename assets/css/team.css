@@ -1,0 +1,175 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial;
+}
+
+#chefImage {
+    max-width: 100%;
+}
+
+.title {
+    color: grey;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+body {
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 14px;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    min-height: 100vh;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+.navbar {
+    background-color: rgba(41, 40, 40, 0.8) !important;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display SC', serif;
+}
+
+.is-1 {
+    color: white;
+    text-align: center;
+}
+
+.subtitle {
+    color: #1495EC;
+}
+
+select {
+    width: 100px;
+}
+
+h1 {
+    color: #F5F5F5 !important;
+}
+
+p {
+    color: rgb(230, 230, 230);
+}
+
+button :focus :active {
+    outline: 0;
+    border-width: 0;
+}
+
+.ui-widget {
+    /* jQueryUI autocomplete */
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8em
+}
+
+.ui-tooltip {
+    /* jQueryUI tooltip */
+    color: #1495EC;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.search {
+    padding-top: 100px;
+}
+
+#searchBox {
+    width: 50%;
+    height: 40px;
+}
+
+#searchBtn {
+    border-radius: 50px;
+    height: 40px;
+    width: 100px;
+}
+
+.output {
+    /* for the loading screen */
+    display: none;
+    padding-top: 50px;
+}
+
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.preload {
+    padding-top: 30%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-li {
+    padding: 5px;
+}
+
+.clearable {
+    background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px;
+    border-radius: 3px;
+    transition: background 0.4s;
+}
+
+.clearable.x {
+    background-position: right 10px center;
+}
+
+.clearable.onX {
+    cursor: pointer;
+}
+
+.clearable::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.308);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 0.9em;
+}
