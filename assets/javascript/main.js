@@ -63,7 +63,6 @@ Recipe.prototype.showRecipe = function () {
         .addClass('content card-li has-text-centered').append(ingredientDropdown)));
 
     $('.output').append(card);
-    $('.output').append('<br>'); //FIXME: check if needed
 };
 // // builds the card items and appends them to the page (BOOTSTRAP)
 // Recipe.prototype.showRecipe = function () {
@@ -185,17 +184,18 @@ $(document).ready(function () {
     // show advanced options
     $('#advancedBefore').click(function () {
         $('#advancedBefore').hide();
-        $('#advancedAfter').show();
+        $('#advancedAfter').toggle("slide", 1000);
 
     });
-    // toggle the about notification area
-    $('#aboutLink').click(function () {
-        $('#notification').toggle();
+
+    // jQueryUI toggle about notification area
+    $("#aboutLink").click(function () {
+        $("#notification").toggle("blind", 1000);
     });
 
     // closes the about notification area
     $('#deleteBtn').click(function () {
-        $('#notification').hide();
+        $("#notification").toggle("blind", 1000);
     });
 
     //jQueryUI tooptip
@@ -213,19 +213,21 @@ $(document).ready(function () {
 
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
-        $('.output').empty();
-        searchParam = $('#searchBox').val();
-        parseSearchParam();
-        runAPI();
-        $(".search").animate({
-            "padding-top": "-=100px",
-        }, 1500);
+        if ($('#searchBox').val() !== "") {
+            $('.output').empty();
+            recipes.length = 0;
+            searchParam = $('#searchBox').val();
+            parseSearchParam();
+            runAPI();
+            $(".search").animate({
+                "padding-top": "-=100px",
+            }, 1500);
 
-        // content loading progress bar
-        $(".preload").show().fadeOut(3000, function () {
-            $(".output").fadeIn(1000);
-        });
-
+            // content loading progress bar
+            $(".preload").show().fadeOut(3000, function () {
+                $(".output").fadeIn(1000);
+            });
+        }
     });
 
     // // clear out the search box on a mouse click
