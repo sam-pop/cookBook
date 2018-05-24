@@ -16,8 +16,8 @@ var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
 var health = ""; // health selector
-var from = 0; // index of first result to return from the API
-var maxResults = 5; // the maxium number of results to return from the API
+var from = 0; // index of the first result to return from the API
+var to = 5; // index of the last result to return from the API
 var space = "%20"; // use this instead of spaces between words
 var regEx = /[^a-zA-Z\s]/gi; //only letters and spaces
 var recipes = []; // holds an array of 'Recipe' objects that we fetched from the API
@@ -115,7 +115,7 @@ function initFields() {
 
 // API
 function runAPI() {
-    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=" + from + "&to=" + maxResults + diet + health; // the URL for the API to use
+    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=" + from + "&to=" + to + diet + health; // the URL for the API to use
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -186,7 +186,7 @@ $(document).ready(function () {
         }, 2000);
         $('.output').empty();
         from += 5;
-        maxResults += 5;
+        to += 5;
         runAPI();
 
     });
@@ -195,7 +195,7 @@ $(document).ready(function () {
         if ($('#searchBox').val() !== "") {
             // init search range
             from = 0;
-            maxResults = 5;
+            to = 5;
             $('#moreResults').show();
 
             $(this).addClass('is-loading');
