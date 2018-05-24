@@ -48,16 +48,18 @@
                 </div>
             </div>
         </div>
-        <!-- NEED TO EDIT from here on -->
+        <!-- MAIN -->
         <div class="block">
             <div class="columns">
                 <div class="column"></div>
                 <div class="column is-two-thirds is-center has-text-left search animated zoomIn">
                     <br>
-                    <br>
+                    <!-- SEARCH BOX -->
                     <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
                         size="50" title="Yum Yum!">
+                    <!-- SEARCH BUTTON -->
                     <button id="searchBtn" class="button is-info" type="submit">Search!</button>
+                    <!-- ADVANCED SEARCH -->
                     <div id="advancedBefore" style="padding-left:120px;">
                         <a>Looking for something more specific?</a>
                     </div>
@@ -93,14 +95,20 @@
                             </select>
                         </div>
                     </div>
-
                 </div>
             </div>
+            <!-- MORE RESULTS BUTTON -->
+            <div class="has-text-centered">
+                <button id="moreResults" class="button is-primary is-rounded animated bounceIn" type="submit" style="width:150px">
+                    <i class="fas fa-align-right"></i>&nbsp;Show more</button>
+            </div>
+            <!-- OUTPUT -->
             <div class="columns output is-center">
                 <div class="column preload has-text-centered">
                     <img src="./assets/images/loading_spinner.gif" />
                 </div>
             </div>
+
         </div>
     </div>
     <footer>

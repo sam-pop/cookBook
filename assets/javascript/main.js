@@ -16,6 +16,7 @@ var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
 var health = ""; // health selector
+var from = 0; // index of first result to return from the API
 var maxResults = 5; // the maxium number of results to return from the API
 var space = "%20"; // use this instead of spaces between words
 var regEx = /[^a-zA-Z\s]/gi; //only letters and spaces
@@ -61,7 +62,6 @@ Recipe.prototype.showRecipe = function () {
     var card = $('<div>').addClass('column').append($('<div>').addClass('card').append(link.append([$('<div>').addClass('card-image').append($('<figure>').addClass('image is-square')
         .append($('<img>').attr('src', this.image))), $('<div>').addClass('card-content card-header').append($('<div>').addClass('title is-6 has-text-centered').text(this.label))])).append($('<p>')
         .addClass('content card-li has-text-centered').append(ingredientDropdown)));
-
     $('.output').append(card);
 };
 // // builds the card items and appends them to the page (BOOTSTRAP)
@@ -115,7 +115,7 @@ function initFields() {
 
 // API
 function runAPI() {
-    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=0&to=" + maxResults + diet + health; // the URL for the API to use
+    var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=" + from + "&to=" + maxResults + diet + health; // the URL for the API to use
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -148,7 +148,8 @@ function runAPI() {
 
 $(".preload").hide(); // hide prograss bar
 $('#notification').hide(); // hide the notification
-$('#advancedAfter').hide();
+$('#advancedAfter').hide(); // hide the advanced options
+$('#moreResults').hide(); // hide the more results button
 
 $(document).ready(function () {
 
@@ -177,18 +178,38 @@ $(document).ready(function () {
         $("#notification").toggle("blind", 1000);
     });
 
+    // displays more results to the user
+    $('#moreResults').click(function () {
+        $(this).addClass('is-loading');
+        setTimeout(function () {
+            $('#moreResults').removeClass('is-loading');
+        }, 2000);
+        $('.output').empty();
+        from += 5;
+        maxResults += 5;
+        runAPI();
+
+    });
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         if ($('#searchBox').val() !== "") {
+            // init search range
+            from = 0;
+            maxResults = 5;
+            $('#moreResults').show();
+
             $(this).addClass('is-loading');
             setTimeout(function () {
                 $('#searchBtn').removeClass('is-loading');
             }, 2000);
+
             $('.output').empty();
             recipes.length = 0;
             searchParam = $('#searchBox').val();
+
             parseSearchParam();
             runAPI();
+
             $(".search").animate({
                 "padding-top": "-=100px",
             }, 1500);
