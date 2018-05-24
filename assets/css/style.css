@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
 }
 
+a:hover {
+    color: lightgray;
+}
+
 .navbar {
     background-color: rgba(41, 40, 40, 0.8) !important;
 }

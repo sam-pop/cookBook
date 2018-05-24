@@ -103,6 +103,16 @@ function apiSuccess(json) {
     }
 }
 
+function initFields() {
+    $('#searchBox').val("");
+    $('#health').val("");
+    $('#diet').val("");
+    diet = "";
+    health = "";
+    $('#advancedAfter').hide();
+    $('#advancedBefore').show();
+}
+
 // API
 function runAPI() {
     var apiURL = "https://api.edamam.com/search?app_id=" + appID + "&app_key=" + appKey + "&q=" + searchParam + "&excluded=" + excluded + "&from=0&to=" + maxResults + diet + health; // the URL for the API to use
@@ -113,6 +123,8 @@ function runAPI() {
         url: apiURL,
         success: function (json) { // on API success
             apiSuccess(json);
+            $('#searchBox').attr('placeholder', 'What are we making today?');
+
             // opens ingredients dropdown on mouse click and closes on mouseout
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
@@ -123,7 +135,10 @@ function runAPI() {
             });
         },
         error: function () { // on API error
-            var msg = $('<img>').attr('src', './assets/images/error.jpg').css({
+            var msg = $('<img>').attr({
+                'src': './assets/images/error.jpg',
+                'title': 'Please try different search parameters'
+            }).css({
                 'justify-content': 'center',
                 'position': 'absolute',
                 'right': '36%',
@@ -131,6 +146,11 @@ function runAPI() {
                 'border-radius': '25px'
             });
             $('.output').append(msg);
+            initFields();
+            $('#searchBox').attr('placeholder', 'Please try different search parameters');
+
+
+
         }
     });
 }
@@ -138,8 +158,10 @@ function runAPI() {
 
 $(".preload").hide(); // hide prograss bar
 $('#notification').hide(); // hide the notification
+$('#advancedAfter').hide();
 
 $(document).ready(function () {
+
     // assign the diet variable the selected option from the select form
     $("#diet")
         .change(function () {
@@ -164,6 +186,12 @@ $(document).ready(function () {
         })
         .trigger("change");
 
+    // show advanced options
+    $('#advancedBefore').click(function () {
+        $('#advancedBefore').hide();
+        $('#advancedAfter').show();
+
+    });
     // toggle the about notification area
     $('#aboutLink').click(function () {
         $('#notification').toggle();
