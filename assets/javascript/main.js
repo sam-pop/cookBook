@@ -125,12 +125,7 @@ function runAPI() {
             apiSuccess(json);
             $('#searchBox').attr('placeholder', 'What are we making today?');
             // opens ingredients dropdown on mouse click and closes on mouseout
-            $(document).on("click", ".dropdown", function () {
-                this.classList.toggle('is-active');
-                $(this).mouseout(function () {
-                    this.classList.remove('is-active');
-                });
-            });
+
         },
         error: function () { // on API error
             var msg = $('<img>').attr({
@@ -157,6 +152,50 @@ $('#advancedAfter').hide();
 
 $(document).ready(function () {
 
+    // show ingredients list on click
+    $(document).on("click", ".dropdown", function () {
+        this.classList.toggle('is-active');
+        $(this).mouseout(function () {
+            this.classList.remove('is-active');
+        });
+    });
+
+    // show advanced options
+    $('#advancedBefore').click(function () {
+        $('#advancedBefore').hide();
+        $('#advancedAfter').toggle("slide", 1000);
+
+    });
+
+    // jQueryUI toggle about notification area
+    $("#aboutLink").click(function () {
+        $("#notification").toggle("blind", 1000);
+    });
+
+    // closes the about notification area
+    $('#deleteBtn').click(function () {
+        $("#notification").toggle("blind", 1000);
+    });
+
+    // update the search parameter on button click 
+    $('#searchBtn').click(function () {
+        if ($('#searchBox').val() !== "") {
+            $('.output').empty();
+            recipes.length = 0;
+            searchParam = $('#searchBox').val();
+            parseSearchParam();
+            runAPI();
+            $(".search").animate({
+                "padding-top": "-=100px",
+            }, 1500);
+
+            // content loading progress bar
+            $(".preload").show().fadeOut(3000, function () {
+                $(".output").fadeIn(1000);
+            });
+        }
+    });
+
     // assign the diet variable the selected option from the select form
     $("#diet")
         .change(function () {
@@ -181,22 +220,6 @@ $(document).ready(function () {
         })
         .trigger("change");
 
-    // show advanced options
-    $('#advancedBefore').click(function () {
-        $('#advancedBefore').hide();
-        $('#advancedAfter').toggle("slide", 1000);
-
-    });
-
-    // jQueryUI toggle about notification area
-    $("#aboutLink").click(function () {
-        $("#notification").toggle("blind", 1000);
-    });
-
-    // closes the about notification area
-    $('#deleteBtn').click(function () {
-        $("#notification").toggle("blind", 1000);
-    });
 
     //jQueryUI tooptip
     $('#searchBox').tooltip({
@@ -209,25 +232,6 @@ $(document).ready(function () {
             delay: 100
         },
         track: true
-    });
-
-    // update the search parameter on button click 
-    $('#searchBtn').click(function () {
-        if ($('#searchBox').val() !== "") {
-            $('.output').empty();
-            recipes.length = 0;
-            searchParam = $('#searchBox').val();
-            parseSearchParam();
-            runAPI();
-            $(".search").animate({
-                "padding-top": "-=100px",
-            }, 1500);
-
-            // content loading progress bar
-            $(".preload").show().fadeOut(3000, function () {
-                $(".output").fadeIn(1000);
-            });
-        }
     });
 
     // // clear out the search box on a mouse click
@@ -244,8 +248,6 @@ $(document).ready(function () {
     //         return false;
     //     }
     // });
-
-
 });
 
 // jQueryUI autocomplete
