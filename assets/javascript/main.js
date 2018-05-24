@@ -128,6 +128,7 @@ function runAPI() {
 
         },
         error: function () { // on API error
+            $('#moreResults').hide();
             var msg = $('<img>').attr({
                 'src': './assets/images/error.jpg',
                 'title': 'Please try different search parameters'
