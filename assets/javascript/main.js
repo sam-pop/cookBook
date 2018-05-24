@@ -180,6 +180,10 @@ $(document).ready(function () {
     // update the search parameter on button click 
     $('#searchBtn').click(function () {
         if ($('#searchBox').val() !== "") {
+            $(this).addClass('is-loading');
+            setTimeout(function () {
+                $('#searchBtn').removeClass('is-loading');
+            }, 2000);
             $('.output').empty();
             recipes.length = 0;
             searchParam = $('#searchBox').val();
