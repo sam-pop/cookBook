@@ -103,6 +103,7 @@ function apiSuccess(json) {
     }
 }
 
+// zero-out the search fields and variables
 function initFields() {
     $('#searchBox').val("");
     $('#health').val("");
