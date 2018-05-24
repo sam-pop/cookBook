@@ -50,16 +50,17 @@
         <!-- NEED TO EDIT from here on -->
         <div class="block">
             <div class="columns">
-                
-                <div class="column is-center has-text-centered search animated zoomIn">
+                <div class="column"></div>
+                <div class="column is-two-thirds is-center has-text-left search animated zoomIn">
                     <br>
                     <br>
                     <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
                         size="50" title="Yum Yum!">
                     <button id="searchBtn" class="button is-info" type="submit">Search!</button>
-                    <div class="has-text-centered">
+                    <div class="has-text-left">
+                        &nbsp;&nbsp;
                         <span class="subtitle is-6">Special Diet?</span>
-                        <div class="select is-dark is-small">
+                        <div class="select is-dark is-small is-rounded">
                             <select id="diet">
                                 <option></option>
                                 <option>Balanced</option>
@@ -70,7 +71,7 @@
                             </select>
                         </div>
                         <span class="subtitle is-6">Health Conscious?</span>
-                        <div class="select is-light is-small">
+                        <div class="select is-dark is-small is-rounded">
                             <select id="health">
                                 <option></option>
                                 <option>Vegan</option>
@@ -88,13 +89,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="preload">
-                        <img src="./assets/images/loading_spinner.gif" />
-                    </div>
+
                 </div>
             </div>
             <div class="columns output is-center">
-                <div class="column preload">
+                <div class="column preload has-text-centered">
                     <img src="./assets/images/loading_spinner.gif" />
                 </div>
             </div>

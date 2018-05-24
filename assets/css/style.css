@@ -8,6 +8,15 @@ body {
     min-height: 100vh;
 }
 
+.is-1 {
+    color: white;
+    text-align: center;
+}
+
+.subtitle {
+    color: #1495EC;
+}
+
 select {
     width: 100px;
 }

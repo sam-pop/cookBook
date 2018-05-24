@@ -13,7 +13,7 @@ HTML elements:
 var appID = "36b1ec01"; // edamamAPI application ID
 var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
-var excluded = ""; // ingredient to exclude from results //TODO: fix to include multiple ingredients ('&excluded='+ array[i])
+var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
 var health = ""; // health selector
 var maxResults = 5; // the maxium number of results to return from the API
@@ -64,9 +64,6 @@ Recipe.prototype.showRecipe = function () {
 
     $('.output').append(card);
     $('.output').append('<br>'); //FIXME: check if needed
-
-
-
 };
 // // builds the card items and appends them to the page (BOOTSTRAP)
 // Recipe.prototype.showRecipe = function () {
@@ -102,7 +99,6 @@ function apiSuccess(json) {
     for (var i = 0; i < json.hits.length; i++) {
         var recipe = new Recipe(json.hits[i].recipe.label, json.hits[i].recipe.ingredients, json.hits[i].recipe.image, json.hits[i].recipe.url);
         recipes.push(recipe);
-        console.log('​recipe', recipe); //TODO: delete when no longer needed
         recipe.showRecipe();
     }
 }
@@ -115,9 +111,8 @@ function runAPI() {
         dataType: "json",
         async: "false",
         url: apiURL,
-        success: function (json) { //TODO: finish building the success function
+        success: function (json) { // on API success
             apiSuccess(json);
-
             // opens ingredients dropdown on mouse click and closes on mouseout
             $(document).on("click", ".dropdown", function () {
                 this.classList.toggle('is-active');
@@ -127,8 +122,15 @@ function runAPI() {
 
             });
         },
-        error: function () { //TODO: build meaningful error function
-            alert("API error!");
+        error: function () { // on API error
+            var msg = $('<img>').attr('src', './assets/images/error.jpg').css({
+                'justify-content': 'center',
+                'position': 'absolute',
+                'right': '36%',
+                'width': '350px',
+                'border-radius': '25px'
+            });
+            $('.output').append(msg);
         }
     });
 }
@@ -138,7 +140,6 @@ $(".preload").hide(); // hide prograss bar
 $('#notification').hide(); // hide the notification
 
 $(document).ready(function () {
-
     // assign the diet variable the selected option from the select form
     $("#diet")
         .change(function () {
