@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
 }
 
+.navbar {
+    background-color: rgba(41, 40, 40, 0.8) !important;
+}
+
 .is-1 {
     color: white;
     text-align: center;
