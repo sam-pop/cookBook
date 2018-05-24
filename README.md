@@ -12,3 +12,5 @@ description here
 ## <a name="team-members"></a>Team Members
 
 * "Samuel Poplovitch" <poplovitch.samuel@gmail.com>
+* "Salma" <>
+* "Emily" <>
