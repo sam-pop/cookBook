@@ -138,3 +138,28 @@ footer {
     margin: 0 auto;
     font-size: 0.9em;
 }
+
+/* team page styling */
+
+.cardTeam {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial;
+    background-color: rgba(41, 40, 40, 0.8) !important;
+    margin-top: 50px;
+}
+
+.teamName {
+    font-size: 2em;
+    color: rgb(191, 189, 212);
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(41, 41, 41, 0.562);
+}
+
+.aTeam {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
