@@ -20,7 +20,7 @@ FOODielicious was created using HTML5,CSS3, [Bulma CSS framework](https://bulma.
 
 ## <a name="team-members"></a>Team Members
 
-* [Samuel Poplovitch](poplovitch.samuel@gmail.com)
+* [Samuel Poplovitch]<poplovitch.samuel@gmail.com>
 * [Salma Alqathab](saq5545@gmail.com)
 * [Emily Haines](persephoneunderground@gmail.com)
 
