@@ -1,14 +1,3 @@
-/*
-HTML elements:
----------------
-+ search button - #searchBtn
-+ search input - #searchBox (add title="..." for the tooltip content)
-+ objects output - #output
-+ loading screen -  .preload (& <img src="./assets/images/loading_spinner.gif" />)
-                    .mainContent (for fadeIn effect also holds all the page content)
----------------
-*/
-
 // Gloval Variables
 var appID = "36b1ec01"; // edamamAPI application ID
 var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamamAPI application key
@@ -147,7 +136,6 @@ function runAPI() {
 }
 
 
-$(".preload").hide(); // hide prograss bar
 $('#notification').hide(); // hide the notification
 $('#advancedAfter').hide(); // hide the advanced options
 $('#moreResults').hide(); // hide the more results button
@@ -217,11 +205,6 @@ $(document).ready(function () {
             $(".search").animate({
                 "padding-top": "-=100px",
             }, 1500);
-
-            // content loading progress bar
-            $(".preload").show().fadeOut(3000, function () {
-                $(".output").fadeIn(1000);
-            });
         }
     });
 
