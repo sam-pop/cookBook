@@ -20,9 +20,9 @@ FOODielicious was created using HTML5,CSS3, [Bulma CSS framework](https://bulma.
 
 ## <a name="team-members"></a>Team Members
 
-* [Samuel Poplovitch](mailto:poplovitch.samuel@gmail.com)
-* [Salma Alqathab](mailto:saq5545@gmail.com)
-* [Emily Haines](mailto:persephoneunderground@gmail.com)
+* [Samuel Poplovitch](https://github.com/sam-pop/)
+* [Salma Alqathab](https://github.com/Salmaalqathab)
+* [Emily Haines](https://github.com/PersephoneUnderground)
 
 ## <a name="demo"></a>Demo
 http://sam-pop.github.io/foodielicious
