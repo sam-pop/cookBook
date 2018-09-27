@@ -25,6 +25,6 @@ FOODielicious was created using HTML5,CSS3, [Bulma CSS framework](https://bulma.
 
 ## <a name="demo"></a>Demo
 
-http://sam-pop.github.io/foodielicious
+Live demo: https://sam-pop.github.io/foodielicious
 
-[![FOODielicious Screenshot](https://s7.postimg.cc/v3hychlx7/ezgif.com-optimize.gif)](http://sam-pop.github.io/foodielicious)
+[![FOODielicious Screenshot](https://s7.postimg.cc/v3hychlx7/ezgif.com-optimize.gif)](https://sam-pop.github.io/foodielicious)
