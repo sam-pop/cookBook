@@ -31,4 +31,6 @@ Live demo: https://sam-pop.github.io/foodielicious
 
 ### Note
 
-Since we are using the free developer version of the [EDAMAM recipe API](https://www.edamam.com/) we are limited to 5 API calls per minute.
+Since we are using the _free_ developer version of the [EDAMAM recipe API](https://www.edamam.com/) we are limited to 5 API calls per minute. 
+
+So if you encounter any problems while using the site - just give it a minute :)
