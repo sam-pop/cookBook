@@ -28,3 +28,7 @@ FOODielicious was created using HTML5,CSS3, [Bulma CSS framework](https://bulma.
 Live demo: https://sam-pop.github.io/foodielicious
 
 [![FOODielicious Screenshot](https://s7.postimg.cc/v3hychlx7/ezgif.com-optimize.gif)](https://sam-pop.github.io/foodielicious)
+
+### Note
+
+Since we are using the free developer version of the [EDAMAM recipe API](https://www.edamam.com/) we are limited to 5 API calls per minute.
