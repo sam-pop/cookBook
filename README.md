@@ -6,6 +6,7 @@
 - [What we used](#tech)
 - [Team Members](#team-members)
 - [Demo](#demo)
+- [Future Development](#fDev)
 
 ## <a name="dec"></a> Project Description
 
@@ -34,3 +35,7 @@ Live demo: https://sam-pop.github.io/foodielicious
 Since we are using the _free_ developer version of the [EDAMAM recipe API](https://www.edamam.com/) we are limited to 5 API calls per minute. 
 
 So if you encounter any problems while using the site - just give it a minute :)
+
+### <a name="fDev"></a>Future Development
+- Migrate to a different API (better free tier)
+- Make the website fully responsive on mobile for a variety of devices and screen sizes
