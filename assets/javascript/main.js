@@ -1,6 +1,6 @@
 // Gloval Variables
 var appID = "36b1ec01"; // edamamAPI application ID
-var appKey = "b47a9edb6afcce664d0df80592628d5a"; // edamamAPI application key
+var appKey = "08e02c12371df75898d0efdf6782b57e"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
