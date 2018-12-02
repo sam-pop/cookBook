@@ -44,4 +44,4 @@ So if you encounter any problems while using the site - just give it a minute :)
 
 ### <a name="license"></a>License
 
-This project is licensed under the terms of the [GNU GENERAL PUBLIC LICENSE](LICENSE.MD), Version 3, 29 June 2007
+This project is licensed under the terms of the [GNU GENERAL PUBLIC LICENSE](LICENSE.md), Version 3, 29 June 2007
