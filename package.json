@@ -1,0 +1,25 @@
+{
+  "name": "foodielicious",
+  "version": "1.0.1",
+  "description": "Interactive recipe search website based on available ingredients",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-pop/foodielicious.git"
+  },
+  "keywords": [
+    "recipe",
+    "search",
+    "ingredients",
+    "food",
+    "foodie",
+    "api",
+    "edamam"
+  ],
+  "author": "Samuel Poplovitch",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/sam-pop/foodielicious/issues"
+  },
+  "homepage": "https://github.com/sam-pop/foodielicious#readme"
+}
