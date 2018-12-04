@@ -6,7 +6,6 @@
 - [What we used](#tech)
 - [Team Members](#team-members)
 - [Demo](#demo)
-- [Future Development](#fDev)
 - [License](#license)
 
 ## <a name="dec"></a> Project Description
