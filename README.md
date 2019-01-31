@@ -21,8 +21,8 @@ FOODielicious was created using HTML5,CSS3, [Bulma CSS framework](https://bulma.
 
 ## <a name="team-members"></a>Team Members
 
-- [Samuel Poplovitch](https://github.com/sam-pop/)
-- [Salma Alqathab](https://github.com/Salmaalqathab)
+- [Samuel Poplovitch](https://github.com/sam-pop/) (Lead Developer)
+- [Salma Alqathab](https://github.com/Salmaalqathab) (Design)
 
 ## <a name="demo"></a>Demo
 
